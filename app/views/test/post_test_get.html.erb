@@ -1,0 +1,27 @@
+<style type="text/css">
+div {
+    margin-top: 1em;
+}
+</style>
+<div>
+    post_test_get.htmlだよ
+</div>
+<div>
+    <%= form_for update_record, url: post_test_post_path do |f| %>
+    <%= f.label :id %>:<%= update_record.id %><br>
+    <%= f.label :col1 %><%= f.text_field :col1, size: 25 %><br>
+    <%= f.label :col2 %><%= f.text_field :col2, size: 25 %><br>
+    <%= f.submit "更新" %>
+    <% end %>
+</div>
+<div>
+    <%= form_for new_record, url: post_test_post_path do |f| %>
+    <%= f.label :id %>:new<br>
+    <%= f.label :col1 %><%= f.text_field :col1, size: 25 %><br>
+    <%= f.label :col2 %><%= f.text_field :col2, size: 25 %><br>
+    <%= f.submit "登録" %>
+    <% end %>
+</div>
+<div>
+    <%= render pertial %>
+</div>
