@@ -15,13 +15,17 @@ class TestController < ApplicationController
     # 表示
     def post_test_get
         table1last = Table1.last
-        # table1.col1 = "col1だよ"
-        # table1.col2 = "col2だよ"
-        
+        # logger.debug table1last.table1_child.inspect
+
         table1new = Table1.new
         table1new.table1_child.new
         table1new.col1 = table1last.col1
         table1new.col2 = table1last.col2
+        table1new.table1_child = table1last.table1_child
+
+        # ログ
+        logger.debug table1last.table1_child.class
+        table1last.table1_child.each do |a| logger.debug "aaaaaaaaaa #{a.inspect}" end
 
         # ランダムで部分テンプレートの pertial1 or pertial2 を切り替える
         pertial = "test/post_test_get_pertial#{rand(2)+1}"
