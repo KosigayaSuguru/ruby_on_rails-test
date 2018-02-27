@@ -44,11 +44,13 @@ class TestController < ApplicationController
 
     # 更新用
     def post_test_patch
-        a = params.require(:table1).permit(:col1, :col2)
+        a = params.require(:table1).permit(:col1, :col2, table1_child_attributes: [:id, :col1])
         b = Table1.last
-        b.col1 = a[:col1]
-        b.col2 = a[:col2]
-        b.save
+        # b.col1 = a[:col1]
+        # b.col2 = a[:col2]
+        # logger.debug "ccccccccc #{a[:table1_child_attributes]["0"].inspect}"
+        # logger.debug b.table1_child[0].inspect
+        b.update(a)
         redirect_to post_test_get_path, :status => 302
     end
 end
