@@ -19,6 +19,9 @@ div {
     <%= f.label :id %>:new<br>
     <%= f.label :col1 %><%= f.text_field :col1, size: 25 %><br>
     <%= f.label :col2 %><%= f.text_field :col2, size: 25 %><br>
+    <%= f.fields_for :table1_child do |c| %>
+        <%= c.label :col1 %><%= c.text_field :col1, size: 25 %><br>
+    <% end %>
     <%= f.submit "登録" %>
     <% end %>
 </div>

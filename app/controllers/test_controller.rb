@@ -17,8 +17,9 @@ class TestController < ApplicationController
         table1last = Table1.last
         # table1.col1 = "col1だよ"
         # table1.col2 = "col2だよ"
-
+        
         table1new = Table1.new
+        table1new.table1_child.new
         table1new.col1 = table1last.col1
         table1new.col2 = table1last.col2
 
@@ -31,7 +32,7 @@ class TestController < ApplicationController
     # 登録用
     def post_test_post
         logger.debug "ろぐです"
-        a = params.require(:table1).permit(:col1, :col2)
+        a = params.require(:table1).permit(:col1, :col2, table1_child_attributes: [:col1])
         b = Table1.new(a)
         b.save
         redirect_to post_test_get_path, :status => 301
