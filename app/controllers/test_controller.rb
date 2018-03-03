@@ -1,4 +1,5 @@
 class TestController < ApplicationController
+    # /test/test
     def test
         table1 = Table1.new(col1: 'aaaa', col2: 'bbbb')
         table1.save
@@ -12,16 +13,12 @@ class TestController < ApplicationController
         render :locals => { aaaa: 'localsを使ってテンプレートに値渡してるよ（推奨）' }
     end
 
-    # 表示
+    # 表示 /test/post_test
     def post_test_get
         table1last = Table1.last
-        # logger.debug table1last.table1_child.inspect
-
-        table1new = Table1.new
+        table1new = Table1.new({col1: table1last.col1, col2: table1last.col2})
         table1new.table1_child.new
-        table1new.col1 = table1last.col1
-        table1new.col2 = table1last.col2
-        table1new.table1_child = table1last.table1_child
+        table1new.table1_child = table1last.table1_child unless table1last.table1_child.empty?
 
         # ログ
         logger.debug table1last.table1_child.class
