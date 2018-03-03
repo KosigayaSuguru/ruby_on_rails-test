@@ -1,5 +1,33 @@
 # 雑多なメモ
 
+## ■ デバッグ
+
+### ◆ RailsをVSCでデバッグする
+
+1. VSCをデバッグ窓にして歯車のボタンを押して、Rubyを選択
+2. 以下をインストール（GemFilesに書いて、bundle install）
+
+```ruby
+gem 'ruby-debug-ide'
+gem 'debase'
+```
+
+3. 下記実行
+
+```cmd
+bundle exec rdebug-ide --host 127.0.0.1 --port 1234 --dispatcher-port 26162 -- bin/rails s
+```
+
+4. VSCをデバッグ窓にして、左上のデバッグを、"Listen for rdebug-ide"にして、実行ボタンを押す
+5. Railsが起動して、VSCでブレークポイント張るとブレイクされる
+
+> メモ
+
+* [Visual Studio Codeを使ってRailsをデバッグ実行してみよう](https://qiita.com/chimame/items/56e48ab3145312ff1786)
+  * springのコマンドは実行しなくても良い
+  * userBundlerも設定しなくて良い（というか、設定しようとしたらno allowって出る。補完が効かないのでオプションが無くなった？）
+* [VSCのデバッグ説明ページ？](https://vscode-doc-jp.github.io/docs/userguide/debugging.html)
+
 ## ■ モデル関係
 
 ----
