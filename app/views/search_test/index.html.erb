@@ -1,0 +1,17 @@
+<style type="text/css">
+label {
+    margin-left: 1em;
+}
+</style>
+<%= form.hello %><br>
+<%= form_for form, method: "GET", url: search_index_path do |f| %>
+<%= f.label :id %>：<%= f.text_field :id %>
+<%= f.label :col1 %>：<%= f.text_field :col1 %>
+<%= f.label :col2 %>：<%= f.text_field :col2 %>
+<br>
+<%= f.submit "検索", style: "margin-top:2em;margin-left:1em;" %>
+<% end %>
+
+<%= list.each do |item| %>
+<%= item %>
+<% end %>
