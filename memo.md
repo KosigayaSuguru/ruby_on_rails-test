@@ -1,5 +1,11 @@
 # 雑多なメモ
 
+## ■ お役立ち
+
+### ◆ まず見る
+
+* [Railsアプリケーション構築ガイド](https://rails.densan-labs.net/index.html)
+
 ## ■ デバッグ
 
 ### ◆ RailsをVSCでデバッグする
