@@ -1,17 +1,57 @@
-<style type="text/css">
-label {
-    margin-left: 1em;
-}
-</style>
 <%= form.hello %><br>
 <%= form_for form, method: "GET", url: search_index_path do |f| %>
 <%= f.label :id %>：<%= f.text_field :id %>
 <%= f.label :col1 %>：<%= f.text_field :col1 %>
 <%= f.label :col2 %>：<%= f.text_field :col2 %>
 <br>
-<%= f.submit "検索", style: "margin-top:2em;margin-left:1em;" %>
+<%= f.submit "検索", class: "submit_button" %>
 <% end %>
 
-<%= list.each do |item| %>
-<%= item %>
+<%= list.each unless list.none? do |item| %>
+<%= item.col1 %>
 <% end %>
+
+<br>
+<%= link_to '検索条件クリア', search_index_path, class: "square_btn" %>
+
+<!-- ラベル用 -->
+<style type="text/css">
+label {
+    margin-left: 1em;
+}
+</style>
+
+<!-- 検索ボタン用 -->
+<style type="text/css">
+.submit_button {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.25em 0.5em;
+    font-size: 1em;
+    background-color: #000;
+    color: #fff;
+    border-style: none;
+}
+</style>
+
+<!-- 検索条件クリア用 -->
+<style type="text/css">
+.square_btn {
+    margin-top: 1em;
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #fd9535;/*背景色*/
+    border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+}
+
+.square_btn:active {
+    border-bottom: solid 2px #fd9535;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+</style>
