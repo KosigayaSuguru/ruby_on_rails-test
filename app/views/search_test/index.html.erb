@@ -8,11 +8,37 @@
 <%= f.submit "検索", class: "submit_button" %>
 <% end %>
 
-<ul>
+<style type="text/css">
+#list1 .id {
+    width: 4em;
+}
+#list1 td {
+    width: 15em;
+    background-color: rgb(245, 239, 239);
+    padding-left: 0.5em;
+}
+#list1 th {
+    background-color: rgb(245, 222, 222);
+    font-weight: normal;
+}
+</style>
+
+<table id="list1">
+        <th>id</th>
+        <th>col1</th>
+        <th>col2</th>
+        <th>cid</th>
+        <th>ccol1</th>
     <% list.each do |item| %>
-        <li><%= item[:id] %>　<%= item[:col1] %>　<%= item[:col2] %></li>
+    <tr>
+        <td class="id"><%= item[:id] %></td>
+        <td><%= item[:col1] %></td>
+        <td><%= item[:col2] %></td>
+        <td class="id"><%= item[:cid] %></td>
+        <td><%= item[:ccol1] %></td>
+    </tr>
     <% end %>
-<ul>
+</table>
 
 <!-- ラベル用 -->
 <style type="text/css">

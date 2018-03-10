@@ -15,6 +15,11 @@ class SearchTestController < ApplicationController
             list.where!(id: a[:id]) if a[:id].present?
             list.where!(col1: a[:col1]) if a[:col1].present?
             list.where!(col2: a[:col2]) if a[:col2].present?
+            # table1_childrenと外部結合
+            list.left_outer_joins!(:table1_child)
+            list._select!("table1s.*, table1_children.id as cid, table1_children.col1 as ccol1")
+            list.order!(:id)
+            list.order!("cid ASC")
             logger.debug list.class
         else 
             # 検索条件が指定されていない場合、空を返す
