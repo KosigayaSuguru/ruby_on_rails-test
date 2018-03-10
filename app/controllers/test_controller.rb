@@ -1,5 +1,5 @@
 class TestController < ApplicationController
-    layout "my_layout"
+    layout Constants::Layout::MY_LAYOUT
 
     # /test/test
     def test

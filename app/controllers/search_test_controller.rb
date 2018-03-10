@@ -1,5 +1,5 @@
 class SearchTestController < ApplicationController
-    layout "my_layout"
+    layout Constants::Layout::MY_LAYOUT
 
     def index
         logger.debug "object_id: #{self.object_id}"
