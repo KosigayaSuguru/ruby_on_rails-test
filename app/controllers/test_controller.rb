@@ -1,4 +1,6 @@
 class TestController < ApplicationController
+    layout "my_layout"
+
     # /test/test
     def test
         table1 = Table1.new(col1: 'aaaa', col2: 'bbbb')

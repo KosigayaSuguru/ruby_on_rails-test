@@ -1,4 +1,5 @@
 class SearchTestController < ApplicationController
+    layout "my_layout"
 
     def index
         logger.debug "object_id: #{self.object_id}"

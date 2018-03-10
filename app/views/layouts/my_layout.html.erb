@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MyLayoutTest</title>
+  <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+</head>
+
+<style type="text/css">
+  #nav ul {
+    padding: 0;
+    background-color: black;
+  }
+
+  #nav ul li {
+    display: inline;
+    margin-left: 0.5em; 
+  }
+
+  #nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  #nav ul li a:hover {
+    color: red;
+    text-decoration: none;
+  }
+</style>
+
+<body>
+  <div id="nav">
+    <ul>
+      <li>
+        <%= link_to '登録・更新テスト用', post_test_get_path %>
+      </li>
+      <li>
+        <%= link_to '検索テスト用', search_index_path %>
+      </li>
+    </ul>
+  </div>
+  <%= yield %>
+</body>
+
+</html>
