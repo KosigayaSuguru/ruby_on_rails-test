@@ -48,3 +48,5 @@ group :development do
   gem 'debase'
   gem 'ruby-debug-ide'
 end
+
+gem 'kaminari'

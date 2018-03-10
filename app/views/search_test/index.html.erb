@@ -23,6 +23,10 @@
 }
 </style>
 
+<!-- 追加箇所開始 -->
+<%= page_entries_info list unless list.empty? %>
+<!-- 追加箇所終了 -->
+
 <table id="list1">
         <th>id</th>
         <th>col1</th>
@@ -39,6 +43,8 @@
     </tr>
     <% end %>
 </table>
+
+<%= paginate list unless list.empty? %>
 
 <!-- ラベル用 -->
 <style type="text/css">

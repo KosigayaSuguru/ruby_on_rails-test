@@ -19,7 +19,9 @@ class SearchTestController < ApplicationController
             list.left_outer_joins!(:table1_child)
             list._select!("table1s.*, table1_children.id as cid, table1_children.col1 as ccol1")
             list.order!(:id)
-            list.order!("cid ASC")
+            # TODO table1_childrenがベタ書きになってるのがかなりダサい。。
+            list.order!("table1_children.col1 ASC")
+            list = list.page(params[:page])
             logger.debug list.class
         else 
             # 検索条件が指定されていない場合、空を返す
