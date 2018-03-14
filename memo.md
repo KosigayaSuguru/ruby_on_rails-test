@@ -34,6 +34,38 @@ bundle exec rdebug-ide --host 127.0.0.1 --port 1234 --dispatcher-port 26162 -- b
   * userBundlerも設定しなくて良い（というか、設定しようとしたらno allowって出る。補完が効かないのでオプションが無くなった？）
 * [VSCのデバッグ説明ページ？](https://vscode-doc-jp.github.io/docs/userguide/debugging.html)
 
+----
+
+### ◆ VisualStudioCodeでメソッド定義へ飛ぶ
+
+ユーザー設定（ファイル > 基本設定 > 設定 で ruby で検索する）の  
+
+```json
+"ruby.intellisense": "solargrapgh"  
+```
+
+を
+
+```json
+"ruby.intellisense": "rubyLocate"  
+```
+
+にして、VSCを再起動させる。  
+
+再起動後、Rubyのコードを開いた際に、Indexing... みたいなのがステータスバーに出れば
+OK  
+  
+ワークスペース固有にしたい場合は、 ".vscode"フォルダの下に setting.json 作る。  
+※ユーザ設定開いた時に、右の方にある "ユーザ設定" を "ワークスペースの設定" に変えて設定を追加する。  
+
+> メモ  
+
+↓をしてないとダメかも。。
+
+```ruby
+gem install solargraph
+```
+
 ## ■ モデル関係
 
 ----
